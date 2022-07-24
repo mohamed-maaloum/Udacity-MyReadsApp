@@ -1,0 +1,45 @@
+
+import { useState } from "react";
+import BookItem from "./BookItem";
+
+function Bookshelf({BookShelves,BookData}) {
+//const [showSearchPage, setShowSearchpage] = useState(false);
+
+
+
+// BookShelves.map(bookshelf=>{
+//     const took = BookData.filter((book)=>book.shelf==bookshelf.name )
+//     console.log(took)
+// })
+
+
+
+
+//console.log(took)
+
+
+return (
+    <div className="list-books-content">
+        
+            {
+                BookShelves.map((Bookshelf) => {
+                    const booksInShelf = BookData.filter((book)=>book.shelf==Bookshelf.name )
+                    return(
+                        <div key={Bookshelf.id} className="bookshelf">
+                            <h2 className="bookshelf-title">{Bookshelf.title}</h2>
+                            
+                            <BookItem bookItem={booksInShelf} />
+                        </div>
+                        
+                        
+                        
+                )
+                
+                })
+                
+            }
+        </div>
+);
+}
+
+export default Bookshelf;
